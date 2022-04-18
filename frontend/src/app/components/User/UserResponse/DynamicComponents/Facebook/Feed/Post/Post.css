@@ -11,9 +11,20 @@
 }
 
 .postTopInfo > h3 {
+  display: flex;
+  align-items: center;
   font-size: small;
+  font-weight: bold;
   font-family: 'Noto Sans', sans-serif;
+  vertical-align: middle;
 }
+
+.postTopInfo > h3 > svg { 
+  font-size: .9rem;
+  margin-left: 5px;
+  color: #1B74E4;
+}
+
 
 .postTopInfo > p {
   font-size: x-small;

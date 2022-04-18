@@ -9,6 +9,7 @@ import { Avatar } from "@material-ui/core";
 import { useEffect, useState } from "react";
 import Share from '../../../../../../Common/UserCommon/SocialMediaPostType/Share';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 
 const PostTop = ({ id }) => {
   const singlePost = useSelector(state => selectSinglePost(state, id));
@@ -34,9 +35,9 @@ const PostTop = ({ id }) => {
                 className="postTopAvatar"
               />
               <div className="postTopInfo">
-                <h3>{singlePost.userPost ? (userRegisterData['USERNAME'] || "") : 
-                  singleAuthor?.authorName || ""
-                }</h3>
+                  <h3>{singlePost.userPost ? (userRegisterData['USERNAME'] || "") : 
+                    singleAuthor?.authorName || ""
+                  } {singleAuthor?.authorVerified && <CheckCircleIcon color="primary" fontSize="small"/>}</h3>
                 <p>{singlePost.datePosted || ""}</p>
               </div>
               <div className="postTopThreeDots">
