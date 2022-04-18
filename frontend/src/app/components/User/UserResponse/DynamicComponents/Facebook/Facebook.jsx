@@ -55,7 +55,7 @@ const Facebook = ({ data }) => {
         <div className="facebookMainBody">
           {totalPostCount && totalPostCount > 0 ? <Feed /> : <p>No Posts Exists!</p>}
         </div>
-        <Button
+        {/* <Button
           type="submit"
           variant="contained"
           color="primary"
@@ -64,7 +64,7 @@ const Facebook = ({ data }) => {
           endIcon={<IconChevronRight />}
         >
           {translations?.next || "NEXT"}
-        </Button>
+        </Button> */}
       </Container>
     </>
   )
