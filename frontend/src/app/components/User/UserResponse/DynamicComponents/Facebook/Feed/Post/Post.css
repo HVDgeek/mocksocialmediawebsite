@@ -478,6 +478,7 @@ a.link-preview .link-area .og-title {
   align-items: center;
   justify-content: center;
   flex: 1;
+  margin-left: 10px;
 }
 
 .defaultEmoji {

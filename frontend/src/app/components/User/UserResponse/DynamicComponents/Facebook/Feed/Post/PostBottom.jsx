@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Avatar } from "@material-ui/core";
 import ShareModal from './ShareModal';
 import { FB_TRANSLATIONS_DEFAULT } from '../../../../../../../constants';
-import { FacebookSelector } from '@charkour/react-reactions';
+import { FacebookSelector, FacebookCounter } from '@charkour/react-reactions';
 import "./Post.css";
 
 const PostBottom = ({ id }) => {
@@ -73,6 +73,13 @@ const PostBottom = ({ id }) => {
         <div className="postActionsContainer">
           <div className="postAction reactionContainer childrenReactions">
             {display && <FacebookSelector onSelect={handleReactions} iconSize={30} />}
+            {!display && 
+            <div style={{paddingTop: '15px'}}>
+              <FacebookCounter onClick={() => setDisplay(true)} counters={
+                Array.from(Array(postMetadata?.initLike).keys()).map(x => ({emoji: 'like'}))
+              }/>
+            </div>
+            }
           </div>
           <div className="postAction totalComments">
             <p>{(postMetadata?.comments?.length.toString() || "0") + " " + (socialMediaTranslations?.comments || FB_TRANSLATIONS_DEFAULT?.COMMENTS)}</p>
