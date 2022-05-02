@@ -5,7 +5,9 @@ import { useState } from "react";
 import { Avatar } from "@material-ui/core";
 import ShareModal from './ShareModal';
 import { FB_TRANSLATIONS_DEFAULT } from '../../../../../../../constants';
-import { FacebookSelector, FacebookCounter } from '@charkour/react-reactions';
+// import { FacebookSelector } from '@charkour/react-reactions';
+import FacebookSelector from "../../FacebookSelector/FacebookSelector";
+import FacebookCounter from "../../FacebookCounter/FacebookCounter";
 import "./Post.css";
 
 const PostBottom = ({ id }) => {
@@ -75,9 +77,7 @@ const PostBottom = ({ id }) => {
             {display && <FacebookSelector onSelect={handleReactions} iconSize={30} />}
             {!display && 
             <div style={{paddingTop: '15px'}}>
-              <FacebookCounter onClick={() => setDisplay(true)} counters={
-                Array.from(Array(postMetadata?.initLike).keys()).map(x => ({emoji: 'like'}))
-              }/>
+              <FacebookCounter onClick={() => setDisplay(true)} counters={postMetadata?.initLike}/>
             </div>
             }
           </div>
@@ -101,10 +101,10 @@ const PostBottom = ({ id }) => {
           <div className={'commentEmoji'}></div>
           <p><strong>{socialMediaTranslations?.comment || FB_TRANSLATIONS_DEFAULT.COMMENT}</strong></p>
         </div>
-        <div className="postOption" onClick={openModal}>
+        {/* <div className="postOption" onClick={openModal}>
           <div className={'shareEmoji'}></div>
           <p><strong>{socialMediaTranslations?.share || FB_TRANSLATIONS_DEFAULT.SHARE}</strong></p>
-        </div>
+        </div> */}
     </div>
     {openCommentBox && 
       <div className="comment">
